@@ -1,0 +1,22 @@
+{
+  "name": "Frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AutoSync/Frontend.git",
+  "author": "ERICK BARROS DE ANDRADE <erickspace11@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.2"
+  }
+}
