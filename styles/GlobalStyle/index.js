@@ -6,8 +6,11 @@ export default createGlobalStyle`
         padding: 0;
         outline: 0;
         box-sizing: border-box;
+
+        
     }
     body{
+        font-family: "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased !important;
 
     }
