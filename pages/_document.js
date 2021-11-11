@@ -1,7 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from 'styled-components';
-import GlobalStyle from '../styles/GlobalStyle';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -25,7 +24,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin={true} />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,400&display=swap" rel="stylesheet" />
           {this.props.styleTags}
         </Head>
