@@ -4,7 +4,7 @@ export default function Home(){
     return( 
     <Container  app
                 stack
-                padding="1em"
+                padding={"10em"}
                 justify="center"
                 align="center"
                 background="whitesmoke"
@@ -20,6 +20,7 @@ export default function Home(){
                    size="10pt"
                    >
             <h1>Welcome to Frontend NextJS With styled-components</h1>
+            
         </Container>
 
     </Container>

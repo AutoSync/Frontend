@@ -1,25 +1,32 @@
 import styled from "styled-components"
 
-
 export const Container = styled.div`
 
-    display: ${props => props.stack || props.queue ? "flex" : props.display || "auto" };
+    display: ${props => props.stack || props.queue ? "flex" :  props.display || "auto" };
+
     flex-direction: ${props => props.stack ? "column" : props.queue ? "row" : props.direction || "auto" };
 
     position: ${props => props.position || "auto"};
     
-    width: ${props => props.app ? "100%" : props.fill ? "100%" : props.width || "auto"};
-    height: ${props => props.app ? "100vh" : props.full ? "100vh" : props.height || "auto"};
+    width: ${props => props.app ? "100%" : props.fill ? "100%" :  props.width || "auto"};
+    height: ${props => props.app ? "100vh" : props.full ? "100vh" :  props.height || "auto"};
 
-    width: ${props => props.width };
-    height: ${props => props.height};
     min-width: ${props => props.minWidth};
     min-height: ${props => props.minHeight};
     max-width: ${props => props.maxWidth};
     max-height: ${props => props.maxHeight};
 
-    margin: ${props => props.margin || 0 };
+    margin: ${props => props.separator ? "5px 10px" : props.margin || 0 };
+    margin-left: ${props => props.marginLeft || 0};
+    margin-right: ${props => props.marginRight || 0};
+    margin-top: ${props => props.marginTop || 0};
+    margin-bottom: ${props => props.marginBottom || 0};
+
     padding: ${props => props.padding || 0 };
+    padding-left: ${props => props.paddingleft || 0};
+    padding-right: ${props => props.paddingright || 0};
+    padding-top: ${props => props.paddingtop || 0};
+    padding-bottom: ${props => props.paddingbottom || 0};
 
     background-color: ${props => props.background || "auto"};
     background: ${props => props.back || "auto"};
@@ -27,6 +34,8 @@ export const Container = styled.div`
     background-repeat: ${props => props.repeat || "no-repeat"};
     background-size: ${props => props.size || "cover"};
     background-position: ${props => props.position || "center"};
+
+    background: linear-gradient( ${props => props.linearAngle || 0}, ${props => props.linearStart || "auto"}, ${props => props.linearEnd || "auto"} );
 
     opacity: ${props => props.opacity || 1};
     z-index: ${props => props.zIndex || 0};
@@ -58,10 +67,14 @@ export const Container = styled.div`
     font-size: ${props => props.size || "auto"};
     font-weight: ${props => props.weight || "auto"};
 
-    :hover{
-        box-shadow: ${props => props.hoverBoxShadow};
+    resize: ${props => props.resize || "none"};
+    overflow: "auto";
 
-        background: ${props => props.hoverBackground || "auto"};
+
+    :hover{
+        box-shadow: ${props => props.hBoxShadow};
+
+        background: ${props => props.hBackground || "auto"};
         color: ${props => props.hcolor || "auto" };
 
         width: ${props => props.hWidth};
@@ -72,5 +85,54 @@ export const Container = styled.div`
         border-left: ${props => props.hBorderLeft || "auto"};
         border-right: ${props => props.hBorderRight || "auto"};
         border-bottom: ${props => props.hBorderBottom || "auto"};
+    }
+
+    @media only screen and (max-width: 500) { 
+
+        flex-direction: ${props => props.mDirection || "auto" };
+        justify-content: ${props => props.mJustify || "left"};
+        align-items: ${props => props.mAlign || "auto"};
+        
+        width: ${props =>  props.mWidth || "auto"};
+        height: ${props => props.mHeight || "auto"};
+
+        min-width: ${props => props.mMinWidth};
+        min-height: ${props => props.mMinHeight};
+        max-width: ${props => props.mMaxWidth};
+        max-height: ${props => props.mMaxHeight};
+
+        margin: ${props => props.mMargin || 0 };
+        margin-left: ${props => props.mMarginLeft || 0};
+        margin-right: ${props => props.mMarginRight || 0};
+        margin-top: ${props => props.mMarginTop || 0};
+        margin-bottom: ${props => props.mMarginBottom || 0};
+
+        padding: ${props => props.mPadding || 0 };
+        padding-left: ${props => props.mPaddingleft || 0};
+        padding-right: ${props => props.mPaddingright || 0};
+        padding-top: ${props => props.mPaddingtop || 0};
+        padding-bottom: ${props => props.mPaddingbottom || 0};
+
+        transition-duration: ${props => props.animDuration || "400ms"};
+
+        transform: ${props => props.mTransfrom || "scale(1)" };
+        font-size: ${props => props.mSize || "auto" };
+        font-weight: ${props => props.mWeight || "auto" };
+
+        resize: ${props => props.mResize || "none" };
+        overflow: "auto";
+
+        :hover{
+
+            width: ${props => props.mHoverWidth};
+            height: ${props => props.mHoverHeight};
+
+            border: ${props => props.mHoverBorder || "auto"};
+            border-top: ${props => props.mHoverBorderTop || "auto"};
+            border-left: ${props => props.mHoverBorderLeft || "auto"};
+            border-right: ${props => props.mHoverBorderRight || "auto"};
+            border-bottom: ${props => props.mHoverhBorderBottom || "auto"};
+            }
+
     }
 `

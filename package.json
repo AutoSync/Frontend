@@ -6,14 +6,15 @@
   "author": "ERICK BARROS DE ANDRADE <erickspace11@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && next",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && next build",
+    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && next start"
   },
   "dependencies": {
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.6.0",
     "styled-components": "^5.3.1",
     "yarn": "^1.22.17"
   },
