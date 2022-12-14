@@ -34,7 +34,27 @@ export const Typo = styled.h1`
     padding: ${props => props.padding || 0 };
     margin: ${props => props.margin || 0 };
 
-    text-align: ${props => props.align || "inherit"};
+    text-align: ${props => props.textAlign || "inherit"};
+    text-shadow: ${props => props.textShadow};
+    transition-duration: ${props => props.animDuration || "200ms"};
+
+    :hover{
+            backdrop-filter: ${props => props.hBackdrop || "blur(0px)"};
+
+            text-shadow: ${props => props.hTextShadow};
+
+            background: ${props => props.hBackground || "auto"};
+            color: ${props => props.hcolor || "auto" };
+
+            width: ${props => props.hWidth};
+            height: ${props => props.hHeight};
+
+            border: ${props => props.hBorder || "auto"};
+            border-top: ${props => props.hBorderTop || "auto"};
+            border-left: ${props => props.hBorderLeft || "auto"};
+            border-right: ${props => props.hBorderRight || "auto"};
+            border-bottom: ${props => props.hBorderBottom || "auto"};
+        }
 
     @media only screen and (max-width: 600px) { 
 
@@ -65,23 +85,27 @@ export const Typo = styled.h1`
         font-family: ${props => props.mFamily || "Roboto"};
 
         :hover{
-            backdrop-filter: ${props => props.mHoverBackdrop || "blur(0px)"};
+            backdrop-filter: ${props => props.mHBackdrop || "blur(0px)"};
 
-            box-shadow: ${props => props.mHoverBoxShadow};
+            box-shadow: ${props => props.mHBoxShadow};
 
-            background: ${props => props.mHoverBackground || "auto"};
-            color: ${props => props.mHovercolor || "auto" };
+            background: ${props => props.mHBackground || "auto"};
+            color: ${props => props.mHcolor || "auto" };
 
-            width: ${props => props.mHoverWidth};
-            height: ${props => props.mHoverHeight};
+            width: ${props => props.mHWidth};
+            height: ${props => props.mHHeight};
 
-            border: ${props => props.mHoverBorder || "auto"};
-            border-top: ${props => props.mHoverBorderTop || "auto"};
-            border-left: ${props => props.mHoverBorderLeft || "auto"};
-            border-right: ${props => props.mHoverBorderRight || "auto"};
-            border-bottom: ${props => props.mHoverhBorderBottom || "auto"};
+            border: ${props => props.mHBorder || "auto"};
+            border-top: ${props => props.mHBorderTop || "auto"};
+            border-left: ${props => props.mHBorderLeft || "auto"};
+            border-right: ${props => props.mHBorderRight || "auto"};
+            border-bottom: ${props => props.mHBorderBottom || "auto"};
         }
         
     }
 
+    `
+
+    export const Txt = styled(Typo)`
+    
     `

@@ -6,6 +6,7 @@ export const Hyper = styled.a`
     flex-direction: ${props => props.stack ? "column" : props.queue ? "row" : props.direction || "auto" };
 
     background-color: ${props => props.background };
+    position: ${props => props.position || "auto"};
 
     width: ${props => props.app ? "100%" : props.fill ? "100%" : props.width || "auto"};
     height: ${props => props.app ? "100vh" : props.full ? "100vh" : props.height || "auto"};
@@ -18,8 +19,11 @@ export const Hyper = styled.a`
     border-radius: ${props => props.radius || '0'};
     text-decoration: ${props => props.decoration || 'none'};
 
-    text-decoration: none;
-  
+    top: ${props => props.top || "auto"} ;
+    left: ${props => props.left || "auto"} ;
+    right: ${props => props.right || "auto"} ;
+    bottom: ${props => props.bottom || "auto"} ;
+ 
     justify-content: ${props => props.justify || "left"};
     align-items: ${props => props.align || "auto"};
 
@@ -37,7 +41,8 @@ export const Hyper = styled.a`
         box-shadow: ${props => props.hBoxShadow};
 
         background: ${props => props.hBackground || "auto"};
-        color: ${props => props.hcolor || "auto" };
+        color: ${props => props.hColor || "auto" };
+        text-decoration: ${props => props.hDecoration || 'none'};
 
         width: ${props => props.hWidth};
         height: ${props => props.hHeight};
@@ -52,7 +57,7 @@ export const Hyper = styled.a`
         color: ${props => props.visited ? props.visited : props.color || 'inherit' };
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: ${props => props.mobile || "512px"}) {
 
         width: ${props => props.app ? "100%" : props.fill ? "100%" : props.mWidth || "auto"};
         height: ${props => props.app ? "100vh" : props.full ? "100vh" : props.mHeight || "auto"};
@@ -100,4 +105,3 @@ export const Hyper = styled.a`
         
     }
 `
-

@@ -78,7 +78,7 @@ export const border_black = "1px solid black"
 export const border_white = "1px solid white"
 export const border_dark = "1px solid #4C4C4C"
 
+//Default Editor Colors
 
-
-
+export const default_dark_background = "#0b0b17"
 

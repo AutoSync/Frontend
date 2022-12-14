@@ -7,12 +7,12 @@ import styled from "styled-components"
 import {MdKeyboardArrowRight as OpenMenu, MdKeyboardArrowDown as CloseMenu } from "react-icons/md"
 import { CollapseButton } from "../Buttons"
 
-const Accordion = (props, {show, hidded}) => {
+const Accordion = (props) => {
 
     const [icon, setIcon] = useState(<CloseMenu />)
-    const [hideState, setHideState] = useState(hidded)
+    const [hideState, setHideState] = useState(props.hidded)
     const [hide, setHide] = useState("block");
-    const [menuState, setMenuState] = useState(show)
+    const [menuState, setMenuState] = useState(props.show)
     const [collapsed, setCollapsed] = useState("block")
     const iconSize = 14
     
@@ -25,12 +25,12 @@ const Accordion = (props, {show, hidded}) => {
     useEffect(() => {
         setCollapsed(menuState ? "block" : "none")
         setIcon(menuState ? <CloseMenu size={iconSize} /> : <OpenMenu size={iconSize} />)
-        setHideState(hidded)
+        setHideState(props.hidded)
         if(hideState)
             setHide("none")
         else
             setHide("block")
-    })
+    },[])
 
 
     return (

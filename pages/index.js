@@ -1,28 +1,46 @@
-import { Container } from "../components/container";
+import { Container } from '../components/Container'
+import { Typo } from "../components/Texts"
+import { Hyper } from '../components/Links'
 
-export default function Home(){
-    return( 
-    <Container  app
+import { RiGithubFill as Github } from 'react-icons/ri'
+
+const Home = () =>{
+    return(
+        <Container
+            app
+            stack
+            background="whitesmoke"
+            justify='center'
+            align='center'
+        >
+
+            <Container 
+                background='white'
+                width='350px'
+                height='150px'
+                radius='.5em'
+                hBoxShadow='0 0 20px rgba(0, 0, 0, .2)'
+                padding='2em'
                 stack
-                padding={"10em"}
-                justify="center"
-                align="center"
-                background="whitesmoke"
-                >
-        <Container width="250px"
-                   height="250px"
-                   padding="1em"
-                   radius="10px"
-                   boxShadow="0px 0px 10px #5555"
-                   background="white"
-                   color="black"
-                   hcolor="blue"
-                   size="10pt"
-                   >
-            <h1>Welcome to Frontend NextJS With styled-components</h1>
-            
-        </Container>
+                justify='center'
+                align='center'
+            >
+                <Typo color="blue">
+                    Welcome to Frontend
+                </Typo>
 
-    </Container>
+                <Container 
+                    queue
+                    justify='center'
+                    align='center'
+                >
+                    <Github siz={18} />
+                    <Hyper hDecoration='underline' color="black" hColor="blue" href='https://github.com/AutoSync/Frontend'>Github repo</Hyper>
+                </Container>
+
+            </Container>
+
+        </Container>
     )
 }
+export default Home

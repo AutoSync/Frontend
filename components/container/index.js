@@ -1,32 +1,24 @@
 import styled from "styled-components"
 
+
 export const Container = styled.div`
 
     display: ${props => props.stack || props.queue ? "flex" :  props.display || "auto" };
-
+    float: ${props => props.float || 'auto'};
     flex-direction: ${props => props.stack ? "column" : props.queue ? "row" : props.direction || "auto" };
 
     position: ${props => props.position || "auto"};
     
-    width: ${props => props.app ? "100%" : props.fill ? "100%" :  props.width || "auto"};
-    height: ${props => props.app ? "100vh" : props.full ? "100vh" :  props.height || "auto"};
+    width: ${props => props.app ? "100%" : props.fill ? "100%" :  props.separator ? "2px" :  props.width || "auto"};
+    height: ${props => props.app ? "100vh" : props.full ? "100vh" : props.separator ? "80%" :  props.height || "auto"};
 
     min-width: ${props => props.minWidth};
     min-height: ${props => props.minHeight};
     max-width: ${props => props.maxWidth};
     max-height: ${props => props.maxHeight};
 
-    margin: ${props => props.separator ? "5px 10px" : props.margin || 0 };
-    margin-left: ${props => props.marginLeft || 0};
-    margin-right: ${props => props.marginRight || 0};
-    margin-top: ${props => props.marginTop || 0};
-    margin-bottom: ${props => props.marginBottom || 0};
-
+    margin: ${props => props.margin || 0 };
     padding: ${props => props.padding || 0 };
-    padding-left: ${props => props.paddingleft || 0};
-    padding-right: ${props => props.paddingright || 0};
-    padding-top: ${props => props.paddingtop || 0};
-    padding-bottom: ${props => props.paddingbottom || 0};
 
     background-color: ${props => props.background || "auto"};
     background: ${props => props.back || "auto"};
@@ -34,6 +26,8 @@ export const Container = styled.div`
     background-repeat: ${props => props.repeat || "no-repeat"};
     background-size: ${props => props.size || "cover"};
     background-position: ${props => props.position || "center"};
+
+    opacity: ${props => props.opacity || "1.0"};
 
     background: linear-gradient( ${props => props.linearAngle || 0}, ${props => props.linearStart || "auto"}, ${props => props.linearEnd || "auto"} );
 
@@ -52,7 +46,12 @@ export const Container = styled.div`
     border-width: ${props => props.borderWidth || "auto"};
     border-style: ${props => props.borderStyle || "auto"};
     border-color: ${props => props.borderColor || "auto"};
-    
+
+    top: ${props => props.top || "auto"} ;
+    left: ${props => props.left || "auto"} ;
+    right: ${props => props.right || "auto"} ;
+    bottom: ${props => props.bottom || "auto"} ;
+
     backdrop-filter: ${props => props.backdrop || "none"};
     box-shadow: ${props => props.boxShadow};
 
@@ -63,13 +62,16 @@ export const Container = styled.div`
 
     transition-duration: ${props => props.animDuration || "400ms"};
 
-    transform: ${props => props.transfrom || "scale(1)"};
+    transform: ${props => props.transfrom || 'auto' };
     font-size: ${props => props.size || "auto"};
     font-weight: ${props => props.weight || "auto"};
 
     resize: ${props => props.resize || "none"};
-    overflow: "auto";
+    overflow: ${props => props.overflow ||  "none" };
 
+    z-index: ${props => props.zOrder || "or" };
+
+    cursor: ${props => props.cursor || "default"};
 
     :hover{
         box-shadow: ${props => props.hBoxShadow};
@@ -87,15 +89,17 @@ export const Container = styled.div`
         border-bottom: ${props => props.hBorderBottom || "auto"};
     }
 
-    @media only screen and (max-width: 500) { 
+    @media only screen and (max-width: ${props => props.mobile || "512px"}) { 
 
         flex-direction: ${props => props.mDirection || "auto" };
         justify-content: ${props => props.mJustify || "left"};
         align-items: ${props => props.mAlign || "auto"};
         
-        width: ${props =>  props.mWidth || "auto"};
-        height: ${props => props.mHeight || "auto"};
+        width: ${props => props.app ? "100%" : props.fill ? "100%" : props.mWidth || "auto"};
+        height: ${props => props.app ? "100vh" : props.full ? "100vh" : props.mHeight || "auto"};
 
+        width: ${props => props.mWidth };
+        height: ${props => props.mHeight};
         min-width: ${props => props.mMinWidth};
         min-height: ${props => props.mMinHeight};
         max-width: ${props => props.mMaxWidth};
@@ -115,15 +119,14 @@ export const Container = styled.div`
 
         transition-duration: ${props => props.animDuration || "400ms"};
 
-        transform: ${props => props.mTransfrom || "scale(1)" };
-        font-size: ${props => props.mSize || "auto" };
-        font-weight: ${props => props.mWeight || "auto" };
+        //transform: ${props => props.mTransfrom};
+        font-size: ${props => props.mSize || "auto"};
+        font-weight: ${props => props.mWeight || "auto"};
 
-        resize: ${props => props.mResize || "none" };
+        resize: ${props => props.mResize || "none"};
         overflow: "auto";
 
         :hover{
-
             width: ${props => props.mHoverWidth};
             height: ${props => props.mHoverHeight};
 
@@ -132,7 +135,12 @@ export const Container = styled.div`
             border-left: ${props => props.mHoverBorderLeft || "auto"};
             border-right: ${props => props.mHoverBorderRight || "auto"};
             border-bottom: ${props => props.mHoverhBorderBottom || "auto"};
-            }
+        }}
+`
 
-    }
+export const Wrap = styled(Container)`
+    display: flex;
+    flex-wrap: wrap;
+
+
 `
